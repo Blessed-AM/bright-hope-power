@@ -66,9 +66,10 @@ export const TIERS: QuoteTier[] = [
 
 export function pickTier(totalWatts: number, hoursNeeded: number): QuoteTier {
   const wh = totalWatts * hoursNeeded;
-  if (totalWatts <= TIERS[0].maxWatts && wh <= 960) return TIERS[0];
-  if (totalWatts <= TIERS[1].maxWatts && wh <= 2400) return TIERS[1];
-  return TIERS[2];
+  const [one, two, three] = TIERS as [QuoteTier, QuoteTier, QuoteTier];
+  if (totalWatts <= one.maxWatts && wh <= 960) return one;
+  if (totalWatts <= two.maxWatts && wh <= 2400) return two;
+  return three;
 }
 
 export const zar = (n: number) =>
