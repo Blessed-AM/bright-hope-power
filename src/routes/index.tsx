@@ -311,7 +311,7 @@ function OutageBoard() {
 function QuoteTool() {
   const [selected, setSelected] = useState<string[]>(["lights", "wifi", "phones"]);
   const [hours, setHours] = useState(8);
-  const [area, setArea] = useState(AREAS[0].id);
+  const [area, setArea] = useState(AREAS[0]?.id ?? "orlando");
 
   const totalWatts = useMemo(
     () =>
