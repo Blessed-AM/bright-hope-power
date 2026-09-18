@@ -93,6 +93,8 @@
   --ember-foreground: oklch(0.16 0.015 55);
   --signal: oklch(0.86 0.16 95);
   --signal-foreground: oklch(0.18 0.02 60);
+  --whatsapp: oklch(0.7 0.2 155);
+  --whatsapp-foreground: oklch(0.16 0.015 55);
 }
 
 @layer base {
