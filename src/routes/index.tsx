@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Flame,
   Activity,
+  CalendarCheck,
 } from "lucide-react";
 import {
   AREAS,
@@ -69,6 +70,7 @@ function HomePage() {
       <ProductStory />
       <OutageBoard />
       <QuoteTool />
+      <Consultation />
       <Alerts />
       <Footer />
     </div>
@@ -89,6 +91,7 @@ function Header() {
           <a href="#product" className="hover:text-foreground">The Brick</a>
           <a href="#areas" className="hover:text-foreground">Area power status</a>
           <a href="#quote" className="hover:text-foreground">Get a quote</a>
+          <a href="#consult" className="hover:text-foreground">Book a consult</a>
           <a href="#alerts" className="hover:text-foreground">Alerts</a>
         </nav>
         <a
@@ -425,6 +428,123 @@ function QuoteTool() {
               No obligation. Price locked for 14 days.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Consultation() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [area, setArea] = useState(AREAS[0]?.id ?? "orlando");
+  const [topic, setTopic] = useState("Home backup");
+  const [slot, setSlot] = useState("Weekday morning");
+  const [done, setDone] = useState(false);
+
+  const inputCls =
+    "mt-2 w-full rounded-lg border border-input bg-card px-4 py-3 text-sm";
+
+  return (
+    <section id="consult" className="border-t border-border bg-secondary/40">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 lg:grid-cols-2">
+        <div>
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-ember text-ember-foreground">
+            <CalendarCheck className="h-6 w-6" />
+          </span>
+          <h2 className="mt-5 font-display text-3xl font-bold md:text-4xl">
+            Book a free consultation
+          </h2>
+          <p className="mt-4 max-w-md text-muted-foreground">
+            Not sure which Power brick fits your home or business? Book a free
+            15-minute call or a doorstep visit. We check your load, explain
+            the lay-by options, and answer your questions — no pressure, no
+            obligation.
+          </p>
+          <ul className="mt-6 space-y-3 text-sm">
+            <li className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-ember" /> Load check for your home or business
+            </li>
+            <li className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-ember" /> Deposit and monthly plan explained in plain language
+            </li>
+            <li className="flex items-center gap-2">
+              <Zap className="h-4 w-4 text-ember" /> Available in isiZulu, Sesotho and English
+            </li>
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-border bg-card p-8">
+          {done ? (
+            <div className="py-8 text-center">
+              <CalendarCheck className="mx-auto h-10 w-10 text-ember" />
+              <p className="mt-4 font-display text-xl font-bold">
+                Booked, {name.split(" ")[0] || "friend"}!
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                We'll SMS or WhatsApp {phone || "you"} to confirm your{" "}
+                {slot.toLowerCase()} consultation about {topic.toLowerCase()}.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (name.trim() && phone.trim()) setDone(true);
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <label className="text-sm font-semibold">Your name</label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Thandi Mokoena"
+                  className={inputCls}
+                />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Cellphone number</label>
+                <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="e.g. 073 123 4567"
+                  className={inputCls}
+                />
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="text-sm font-semibold">Your area</label>
+                  <select value={area} onChange={(e) => setArea(e.target.value)} className={inputCls}>
+                    {AREAS.map((a) => (
+                      <option key={a.id} value={a.id}>{a.name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-sm font-semibold">What for?</label>
+                  <select value={topic} onChange={(e) => setTopic(e.target.value)} className={inputCls}>
+                    {["Home backup", "Small business", "Backroom rental", "Community / stokvel"].map((t) => (
+                      <option key={t}>{t}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Best time</label>
+                <select value={slot} onChange={(e) => setSlot(e.target.value)} className={inputCls}>
+                  {["Weekday morning", "Weekday afternoon", "Saturday", "Evening call"].map((s) => (
+                    <option key={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+              <button className="w-full rounded-lg bg-ember py-3.5 font-semibold text-ember-foreground transition hover:opacity-90">
+                Book my free consultation
+              </button>
+              <p className="text-center text-xs text-muted-foreground">
+                Free. We confirm by SMS or WhatsApp within one working day.
+              </p>
+            </form>
+          )}
         </div>
       </div>
     </section>
