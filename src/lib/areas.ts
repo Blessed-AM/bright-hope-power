@@ -59,9 +59,9 @@ export interface QuoteTier {
 }
 
 export const TIERS: QuoteTier[] = [
-  { name: "Brick One", model: "Thermal 1kWh", price: 3499, deposit: 499, monthly: 250, hours: 8, maxWatts: 120, bestFor: "Rooms, backrooms and shacks — lights, wifi and phones" },
-  { name: "Brick Two", model: "Thermal 2.4kWh", price: 6499, deposit: 899, monthly: 429, hours: 10, maxWatts: 240, bestFor: "Small homes and flats — lights, wifi, laptops and TV" },
-  { name: "Brick Pro", model: "Thermal 5kWh", price: 11999, deposit: 1499, monthly: 749, hours: 12, maxWatts: 480, bestFor: "Spaza shops, salons and small businesses" },
+  { name: "Brick One", model: "Power 70W", price: 3499, deposit: 499, monthly: 250, hours: 8, maxWatts: 120, bestFor: "Rooms, backrooms and shacks — lights, wifi and phones" },
+  { name: "Brick Two", model: "Power 100W", price: 6499, deposit: 899, monthly: 429, hours: 10, maxWatts: 240, bestFor: "Small homes and flats — lights, wifi, laptops and TV" },
+  { name: "Brick Pro", model: "Power 200W", price: 11999, deposit: 1499, monthly: 749, hours: 12, maxWatts: 480, bestFor: "Spaza shops, salons and small businesses" },
 ];
 
 export function pickTier(totalWatts: number, hoursNeeded: number): QuoteTier {
