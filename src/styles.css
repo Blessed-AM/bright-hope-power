@@ -65,6 +65,8 @@
   --ember-foreground: oklch(0.98 0.01 90);
   --signal: oklch(0.86 0.16 95);
   --signal-foreground: oklch(0.25 0.03 60);
+  --whatsapp: oklch(0.67 0.22 155);
+  --whatsapp-foreground: oklch(0.98 0.01 90);
 }
 
 .dark {
