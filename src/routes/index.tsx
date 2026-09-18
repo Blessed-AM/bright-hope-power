@@ -14,6 +14,7 @@ import {
   Flame,
   Activity,
   CalendarCheck,
+  MessageCircle,
 } from "lucide-react";
 import {
   AREAS,
