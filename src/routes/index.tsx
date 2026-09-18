@@ -462,6 +462,15 @@ function Consultation() {
             the lay-by options, and answer your questions — no pressure, no
             obligation.
           </p>
+          <a
+            href="https://wa.me/27786711903"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-lg border border-whatsapp bg-whatsapp/10 px-4 py-3 text-sm font-semibold text-whatsapp transition hover:bg-whatsapp/15"
+          >
+            <MessageCircle className="h-4 w-4" />
+            WhatsApp us to book: 078 671 1903
+          </a>
           <ul className="mt-6 space-y-3 text-sm">
             <li className="flex items-center gap-2">
               <Zap className="h-4 w-4 text-ember" /> Load check for your home or business
