@@ -551,7 +551,7 @@ function Consultation() {
                 Book my free consultation
               </button>
               <p className="text-center text-xs text-muted-foreground">
-                Free. We confirm by SMS or WhatsApp within one working day.
+                Free. We confirm by SMS or WhatsApp on 078 671 1903 within one working day.
               </p>
             </form>
           )}
