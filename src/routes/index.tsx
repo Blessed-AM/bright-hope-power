@@ -491,7 +491,7 @@ function Consultation() {
                 Booked, {name.split(" ")[0] || "friend"}!
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                We'll SMS or WhatsApp {phone || "you"} to confirm your{" "}
+                We'll SMS or WhatsApp {phone || "you"} on 078 671 1903 to confirm your{" "}
                 {slot.toLowerCase()} consultation about {topic.toLowerCase()}.
               </p>
             </div>
